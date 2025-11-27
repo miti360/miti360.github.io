@@ -1,0 +1,379 @@
+/* --- Global Variables --- */
+:root {
+    --primary-color: #E08917;
+    --action-color: #1265A8;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --light-gray: #f4f4f4;
+    --font-heading: 'Crimson Pro', serif;
+    --font-body: 'Google Sans Flex', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Sticky Footer Layout & Overflow Protection */
+body, html { 
+    height: 100%; 
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    width: 100%;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding-top: 60px;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-heading); margin-bottom: 1rem; color: #000; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: var(--primary-color); }
+h3 { font-size: 1.5rem; }
+p { margin-bottom: 1rem; }
+
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 2rem 0; }
+
+/* --- Navigation --- */
+.navbar {
+    position: fixed; top: 0; left: 0; width: 100%; background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; height: 60px;
+}
+
+.nav-container {
+    width: 90%; max-width: 1200px; height: 100%; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem;
+    text-decoration: none; color: #000; z-index: 1001; /* Above mobile menu */
+}
+
+.nav-menu { display: flex; list-style: none; }
+.nav-item { margin-left: 20px; }
+.nav-link { text-decoration: none; color: #000; font-weight: 500; transition: color 0.3s; }
+.nav-link:hover, .nav-link.active { color: var(--primary-color); }
+
+/* Mobile Menu Toggle */
+.menu-toggle { 
+    display: none; /* Hidden on desktop */
+    cursor: pointer; 
+    z-index: 1002; /* Ensure above everything */
+    width: 30px; 
+    height: 25px;
+    position: relative;
+}
+.bar { display: block; width: 100%; height: 3px; margin: 5px 0; background-color: #000; transition: all 0.3s ease; }
+
+/* --- Hero Section & Animation --- */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    background-image: url('assets/main/composition.png');
+    background-size: cover;
+    background-position: center;
+    /* Animation: Pans the background horizontally */
+    animation: panBackground 30s linear infinite alternate; 
+    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+    overflow: hidden;
+}
+
+@keyframes panBackground {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; padding: 20px; }
+.hero-content h1 { color: #fff; font-size: 3.5rem; margin-bottom: 0.5rem; }
+.hero-content .subtitle { font-size: 1.2rem; font-weight: 300; }
+
+/* --- Content Sections --- */
+.content-section, .overview-section, .cite-section, .download-section { padding: 2rem 0; }
+.explore-section { background-color: var(--light-gray); padding: 2rem 0; }
+
+/* --- Carousels --- */
+.overview-carousels-container {
+    height: 60vh; 
+    min-height: 500px;
+    display: flex; flex-direction: column; gap: 20px; margin-bottom: 2rem;
+}
+
+.carousel-wrapper {
+    position: relative;
+    flex: 1;
+    background: #fff;
+    display: flex; align-items: center;
+    padding: 0 40px; 
+    overflow: hidden; /* Critical for container */
+}
+
+#carousel-mixed { height: 50vh; margin: 2rem 0; border: 1px solid #ddd; border-radius: 8px; }
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+    width: max-content; /* Allow track to grow as needed */
+}
+
+.slide {
+    height: 100%;
+    flex-shrink: 0;
+    margin-right: 20px; /* Space between slides on Desktop */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.slide img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd; cursor: pointer;
+    width: 40px; height: 40px; border-radius: 50%;
+    font-size: 1.2rem; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+}
+.nav-btn:hover { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
+
+/* --- Creative Lists (Capabilities) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+.info-card {
+    background: #fff; padding: 1.5rem; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.2s;
+}
+.info-card:hover { transform: translateY(-5px); }
+.card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+/* --- Creative Lists (Study Area) --- */
+.info-list-styled { display: flex; flex-direction: column; gap: 10px; margin-top: 1rem; }
+.list-item-styled {
+    display: flex; align-items: center;
+    background: #fff; padding: 1rem;
+    border-radius: 6px; border-left: 4px solid #ddd;
+}
+.list-item-styled .label { font-weight: 700; width: 100px; color: var(--primary-color); }
+.list-item-styled .value { flex: 1; }
+
+/* --- Bibtex Copy --- */
+.bibtex-container { position: relative; margin-top: 1rem; }
+.bibtex-block {
+    background: #f4f4f4; padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    overflow-x: auto; font-family: monospace; white-space: pre-wrap;
+    word-break: break-word; /* Prevents overflow */
+}
+.copy-btn {
+    position: absolute; top: 10px; right: 10px;
+    display: flex; align-items: center; gap: 5px;
+    background: #fff; border: 1px solid #ddd;
+    padding: 5px 10px; cursor: pointer; font-size: 0.8rem;
+    border-radius: 4px; color: var(--text-color);
+}
+.copy-btn:hover { background: #f9f9f9; }
+
+/* --- Footer --- */
+footer {
+    background: #333; color: #fff; padding: 2rem 0;
+    font-size: 0.9rem; margin-top: auto; /* Pushes to bottom */
+    text-align: center;
+}
+footer .disclaimer { font-size: 0.8rem; color: #aaa; margin-top: 1rem; }
+
+.copyright {
+    margin-top: 1.5rem; /* Separates it from the disclaimer */
+    font-weight: 600;   /* Makes it slightly bolder */
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* --- Download Buttons --- */
+.download-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; margin-top: 2rem;
+}
+.download-btn {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background-color: var(--action-color); color: #fff;
+    text-decoration: none; padding: 2rem; border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+    text-align: center; min-height: 150px;
+}
+.download-btn:hover { transform: translateY(-5px); background-color: #0e4f85; }
+.btn-label { font-size: 1rem; margin-bottom: 0.5rem; }
+.btn-italic { font-style: italic; font-size: 1.5rem; font-weight: 700; }
+
+.btn-icon {
+    margin-bottom: 10px; /* Space between icon and text */
+    opacity: 0.9;
+}
+
+/* Optional: Make icon bounce slightly on hover */
+.download-btn:hover .btn-icon {
+    transform: translateY(-3px);
+    transition: transform 0.2s;
+}
+
+/* --- Tables [cite: 32] --- */
+.table-responsive {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+.data-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.data-summary-table th, .data-summary-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.data-summary-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.overview-table th, 
+.overview-table td {
+    vertical-align: middle; /* Keeps merged cells centered vertically */
+    font-size: 0.95rem;
+}
+
+.overview-table td[rowspan] {
+    background-color: #fcfcfc; /* Subtle offset for the main category */
+    font-weight: 600;
+}
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    .nav-menu {
+        position: fixed; left: -100%; top: 60px; 
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.5); 
+        backdrop-filter: blur(4px);
+        width: 100%; 
+        height: calc(100vh - 60px);
+        text-align: center; transition: 0.3s; 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding-top: 2rem;
+        z-index: 999;
+    }
+    .nav-menu.active { left: 0; }
+    .nav-item { margin: 20px 0; }
+
+    /* Fix Fonts for Mobile */
+    .hero-content h1 { font-size: 2rem; }
+
+    /* --- Carousel Mobile Fixes --- */
+    
+    /* 1. Prevent "Very Long" page (Infinite Scroll Bug) */
+    /* We enforce a fixed height for the container so it can't explode vertically */
+    .overview-carousels-container { 
+        height: auto; 
+        min-height: auto; 
+        display: block; /* Remove flex column on mobile to let them stack naturally */
+    }
+
+    .carousel-wrapper { 
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+        /* Force a reasonable fixed height on mobile instead of relying on auto/aspect-ratio */
+        height: 250px; 
+        aspect-ratio: auto; /* Disable aspect ratio logic to prevent height explosion */
+    }
+
+    /* Stereo needs a bit more height */
+    #carousel-stereo { 
+        height: 400px; 
+    }
+
+    /* 2. Fix "Empty" Mixed Carousel (Specificity Bug) */
+    /* We force the Mixed Carousel to have a set height and ensure images fit */
+    #carousel-mixed { 
+        height: 300px; 
+        margin-top: 1rem;
+    }
+
+    /* Force the track to behave as a simple row */
+    .carousel-track {
+        display: flex;
+        width: auto; /* Let flexbox handle width, don't force max-content */
+    }
+
+    /* CRITICAL: Fix Slide Dimensions */
+    .slide { 
+        /* Force slide to be exactly the width of the screen (minus padding) */
+        flex: 0 0 100%; 
+        width: 100%; 
+        margin-right: 0;
+        box-shadow: none; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+    }
+
+    /* CRITICAL: Specificity Override for Mixed Images */
+    /* We use !important or higher specificity to ensure Desktop rules don't win */
+    .slide img, 
+    .slide.mixed img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: contain; 
+        display: block;
+    }
+
+    /* Fix List styling */
+    .list-item-styled { flex-direction: column; align-items: flex-start; }
+    .list-item-styled .label { width: 100%; margin-bottom: 5px; }
+    
+    /* Adjust Download Grid */
+    .download-grid { grid-template-columns: 1fr; }
+}

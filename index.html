@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miti360 Dataset</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="logo">Miti360</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#overview" class="nav-link">Overview</a></li>
+                    <li class="nav-item"><a href="index.html#explore" class="nav-link">Explore</a></li>
+                    <li class="nav-item"><a href="index.html#cite" class="nav-link">Cite</a></li>
+                    <li class="nav-item"><a href="download.html" class="nav-link">Download</a></li>
+                    <li class="nav-item"><a href="https://dekut-dsail.github.io/" target="_blank" class="nav-link">Lab</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>The Miti360 Dataset</h1>
+                <p class="subtitle">A high-resolution, multi-modal dataset for machine learning in African forestry, developed by the Centre for Data Science and Artificial Intelligence (DSAIL) at Dedan Kimathi University of Technology.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <p>
+                    Despite the huge interest in applying machine learning to forestry, the scarcity of ML-ready datasets related to forestry in Africa remains a major hindrance. Major datasets from North America, South America, Europe and Australia have limited geographic diversity. Miti360 was developed to address this data gap.
+                </p>
+                <p>
+                    In Kenya, national efforts to plant up to 15 billion trees by 2032 present a unique and massive challenge - how to monitor the growth and survival of billions of individual trees. Miti360 is uniquely positioned to help solve this by facilitating the development of ML models to make accurate, quantitative analysis of reforested stands possible.
+                </p>
+                <p>
+                    All data was collected from a 770 ha reforested stand within the Kieni Forest in Kiambu County, Kenya. This forest is a critical part of the Aberdare Ecosystem, one of Kenya's five main water towers, which supplies 80% of the water used in Nairobi.
+                </p>
+            </div>
+        </section>
+
+        <section id="overview" class="overview-section">
+            <div class="container">
+                <h2>See the Data</h2>
+                <p>
+                    Miti360 is a multi-modal dataset integrating five categories of data. The full dataset summary is provided below.
+                </p>
+                
+                <!-- Responsive Table -->
+                <div class="table-responsive">
+                    <table class="data-summary-table overview-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Data Category</th>
+                                <th>Data Type</th>
+                                <th>Quantity</th>
+                                <th>Format</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">1</td>
+                                <td rowspan="5">Drone Images</td>
+                                <td>Orthophoto</td>
+                                <td>2</td>
+                                <td>TIF</td>
+                            </tr>
+                            <tr>
+                                <td>Tiles</td>
+                                <td>844</td>
+                                <td>TIF</td>
+                            </tr>
+                            <tr>
+                                <td>Tree crown annotations</td>
+                                <td>24,197</td>
+                                <td>JSON</td>
+                            </tr>
+                            <tr>
+                                <td>Tree crown species</td>
+                                <td>1,208</td>
+                                <td>CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Tree species shapefile</td>
+                                <td>1,208</td>
+                                <td>SHP</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>2</td>
+                                <td>Tree ground measurements</td>
+                                <td>Numeric data</td>
+                                <td>1208 (601 trees in 2024 & 607 trees in 2025)</td>
+                                <td>CSV</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>3</td>
+                                <td>Ground based single images</td>
+                                <td>Images and tree masks</td>
+                                <td>1208 (601 trees in 2024 & 607 trees in 2025)</td>
+                                <td>JPEG</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>4</td>
+                                <td>Tree stereo images</td>
+                                <td>Images and tree masks</td>
+                                <td>2416 (601 trees in 2024 & 607 trees in 2025)</td>
+                                <td>JPEG</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>5</td>
+                                <td>Weather data from 40 stations</td>
+                                <td>Time series data</td>
+                                <td>8 years daily data</td>
+                                <td>API endpoint</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    Explore visual samples from the dataset. Scroll horizontally to see data quality, annotation styles, and statistical distributions.
+                </p>
+                
+                <div class="overview-carousels-container">
+                    
+                    <div class="carousel-wrapper" id="carousel-phone">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track">
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_211.jpg" alt="Phone Sample 1"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_212.jpg" alt="Phone Sample 2"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_213.jpg" alt="Phone Sample 3"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_214.jpg" alt="Phone Sample 4"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_215.jpg" alt="Phone Sample 5"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_216.jpg" alt="Phone Sample 1"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_217.jpg" alt="Phone Sample 2"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_218.jpg" alt="Phone Sample 3"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_219.jpg" alt="Phone Sample 4"></li>
+                                <li class="slide"><img src="assets/phone/2025_02_01_phone_220.jpg" alt="Phone Sample 5"></li>
+                            </ul>
+                        </div>
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+
+                    <div class="carousel-wrapper" id="carousel-stereo">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track">
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_211_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_211_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_212_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_212_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_213_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_213_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_214_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_214_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_215_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_215_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_216_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_216_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_217_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_217_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_218_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_218_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_219_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_219_right.jpg" alt="Stereo R"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_220_left.jpg" alt="Stereo L"></li>
+                                <li class="slide stereo"><img src="assets/stereo/2025_02_01_stereo_220_right.jpg" alt="Stereo R"></li>
+                            </ul>
+                        </div>
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="capabilities-box">
+                    <h2>What Can You Build with Miti360?</h2>
+                    <p>This dataset is designed to train and benchmark models for critical reforestation tasks.</p>
+                    
+                    <div class="card-grid">
+                        <div class="info-card">
+                            <div class="card-icon">🌲</div>
+                            <h4>Species Identification</h4>
+                            <p>Identify and classify species of individual young trees, saplings, and seedlings from high-resolution drone images.</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-icon">📏</div>
+                            <h4>Biophysical Estimation</h4>
+                            <p>Estimate parameters like crown diameter and tree height from drone or terrestrial imagery to derive biomass estimates.</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-icon">📈</div>
+                            <h4>Predictive Modelling</h4>
+                            <p>Predict changes in tree biophysical parameters and stand volume in relation to prevailing weather conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore" class="explore-section">
+            <div class="container">
+                <h1>Explore Miti360</h1>
+                <p>This section provides a detailed look at the data. Use the tabs to explore the data schema, view sample images, and understand the study area.</p>
+                
+                <div class="table-responsive">
+                    <table class="data-summary-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Count/Size</th>
+                                <th>Format</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aerial Imagery</td>
+                                <td>~2,500 images</td>
+                                <td>TIFF</td>
+                                <td>High Res Drone</td>
+                            </tr>
+                            <tr>
+                                <td>Terrestrial Imagery</td>
+                                <td>~5,000 images</td>
+                                <td>JPG</td>
+                                <td>Handheld</td>
+                            </tr>
+                            <tr>
+                                <td>Weather Data</td>
+                                <td>3 Years</td>
+                                <td>CSV</td>
+                                <td>Daily logs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="carousel-wrapper" id="carousel-mixed">
+                    <button class="nav-btn prev-btn">&#10094;</button>
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <li class="slide mixed"><img src="assets/annotated/2025_02_21_phone_481.jpg" alt="Terrestrial Raw"></li>
+                            <li class="slide mixed"><img src="assets/annotated/2025_02_21_phone_481_mask.png" alt="Terrestrial Mask"></li>
+                            <li class="slide mixed"><img src="assets/annotated/2025_02_21_phone_481_overlayed.jpg" alt="Terrestrial Overlay"></li>
+                            <li class="slide mixed"><img src="assets/annotated/tile_372.png" alt="Aerial Raw"></li>
+                            <li class="slide mixed"><img src="assets/annotated/tile_372_with_bbs.png" alt="Aerial Overlay"></li>
+                        </ul>
+                    </div>
+                    <button class="nav-btn next-btn">&#10095;</button>
+                </div>
+
+                <div class="study-area">
+                    <h3>About the Study Area</h3>
+                    <div class="info-list-styled">
+                        <div class="list-item-styled">
+                            <span class="label">Elevation</span>
+                            <span class="value">2200 m to 2684 m above sea level</span>
+                        </div>
+                        <div class="list-item-styled">
+                            <span class="label">Rainfall</span>
+                            <span class="value">1150 mm to 2560 mm annually</span>
+                        </div>
+                        <div class="list-item-styled">
+                            <span class="label">Soils</span>
+                            <span class="value">Rich in organic matter, fertile</span>
+                        </div>
+                        <div class="list-item-styled">
+                            <span class="label">Species</span>
+                            <span class="value">Over 20 indigenous species, primarily <em>Dombeya torrida</em>, <em>Juniperus procera</em>, <em>Olea africana</em>, and <em>Prunus africana</em>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cite" class="cite-section">
+            <div class="container">
+                <h2>Technical Report</h2>
+                <p>
+                    For a complete description of the data collection, curation, and methodology, please refer to our full <a href="https://github.com/DeKUT-DSAIL/miti360/blob/main/reports/technical_report.pdf" target="_blank">technical report</a>.
+                </p>
+                
+                <h2>How to Cite</h2>
+                <p>
+                    If you use the Miti360 dataset in your research, we kindly request that you cite our technical report. We are currently working on the data paper and it will be made available once it is published.
+                </p>
+                
+                <div class="bibtex-container">
+                    <button id="copy-btn" class="copy-btn" title="Copy to Clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                    <pre class="bibtex-block" id="bibtex-code">
+@techreport{kiplimo2024miti360,
+  title = {Miti360: An integrated dataset combining remote sensing, ground measurements and weather data for improved reforestation monitoring},
+  author = {Kiplimo, Cedric and Mbatia, Samuel and wa Maina, Ciira and Sichangi, Arthur and Gitundu, Denis},
+  institution = {Centre for Data Science and Artificial Intelligence (DSAIL), Dedan Kimathi University of Technology},
+  year = {2024},
+  address = {Nyeri, Kenya}
+}
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>This work was carried out with support from Lacuna Fund and Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ).</p>
+                <p class="disclaimer">The views expressed herein do not necessarily represent those of Lacuna Fund, its Steering Committee, its funders, or Meridian Institute.</p>
+                <p class="copyright"> Copyright &copy; DSAIL 2025</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
