@@ -76,7 +76,7 @@ p { margin-bottom: 1rem; }
 .hero-section {
     position: relative;
     height: 80vh;
-    background-image: url('assets/main/composition.png');
+    background-image: url('assets/main/composition.webp');
     background-size: cover;
     background-position: center;
     /* Animation: Pans the background horizontally */
